@@ -19,19 +19,22 @@ const deleteHandler = (i) =>{
   setmainTask(copytask)
 }
 
-let renderTask = <h1 className='text-xl text-white'>No Task Available</h1>
+let renderTask = <h1 className='text-xl text-white text-center'>No Task Available</h1>
 
 if(mainTask.length > 0){
   renderTask = mainTask.map((t, i) =>{
     return (
-      <li key={i} className='flex items-center justify-between py-7 border-b-[1.5px]'>
-      <h5 className='text-2xl text-white font-normal'>{t.title}</h5>
-      <p className='text-lg text-white font-medium'>{t.description}</p>
+      <li key={i} className='flex flex-col items-center justify-between py-7 border-b-[1.5px]
+      lg:flex-row'>
+      <h5 className='text-xl text-white font-normal
+      lg:px-5'>{t.title}</h5>
+      <p className='text-lg text-white font-nomal pt-3
+      lg:px-5'>{t.description}</p>
     <button 
     onClick={()=>{
       deleteHandler(i)
     }}
-    className='px-5 py-2 bg-red-500 rounded font-bold text-white'>Delete</button>
+    className='px-5 py-2 bg-red-500 rounded font-bold text-white mt-5'>Delete</button>
     </li>
     )
   })
@@ -39,7 +42,7 @@ if(mainTask.length > 0){
 
   return (
     <div className='bg-[#1A202C]'>
-      <h1 className='bg-[#1A202C] border-white text-white text-6xl font-medium text-center uppercase p-8'>todo list</h1>
+      <h1 className='bg-[#1A202C] border-white text-white text-4xl font-medium text-center uppercase p-8 md:text-5xl lg:text-6xl'>todo list</h1>
 
     <form onSubmit={onsubmitHandler} className='w-screen p-8 bg-[#1A202C] 
     md:flex items-center justify-center gap-3'>
